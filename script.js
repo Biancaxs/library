@@ -1,4 +1,4 @@
-const booksContainer = document.querySelector(".books-container")
+let booksContainer = document.querySelector(".books-container")
 
 const dialog = document.querySelector("dialog")
 const form = document.querySelector("form") 
@@ -9,7 +9,6 @@ const closeBtn = document.querySelector(".close-btn")
 const bookTitle = document.querySelector("#title")
 const bookAuthor = document.querySelector("#author")
 const bookPages = document.querySelector("#pages")
-
 
 const myLibrary = [];
 
@@ -26,21 +25,32 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book)
 }
 
-//addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "not read yet")
-//addBookToLibrary("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 309, "not read yet")
+function displayBooks(){
+    booksContainer.textContent = ""
 
-myLibrary.forEach((book) => {
+    myLibrary.forEach((book) => {
+
     const books = document.createElement("div");
     books.classList.add("books");
-    books.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.read}`
+    books.textContent = `${book.title} by ${book.author}, ${book.pages} pages, read: ${book.read}`
 
     booksContainer.appendChild(books)
 })
+}
 
 form.addEventListener("submit", (e) => {
-     e.preventDefault()
+    e.preventDefault()
+
+    const bookRead = document.querySelector('input[name="read"]:checked').value;
 
     const newTitle = bookTitle.value
     const newAuthor = bookAuthor.value
     const newPages = bookPages.value
+    const newRead = bookRead
+
+    dialog.close()
+    
+    addBookToLibrary(newTitle, newAuthor, newPages, newRead)
+    
+    displayBooks()
 })
