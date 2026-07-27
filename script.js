@@ -40,12 +40,12 @@ function displayBooks(){
 
         const books = document.createElement("div");
         books.classList.add("books");
-        books.textContent = `${book.title} by ${book.author}, ${book.pages} pages, read: ${book.read}`
+        books.innerHTML = `Title: ${book.title}<br>Author: ${book.author}<br>Pages: ${book.pages}<br>Read: ${book.read}<br>`
         books.dataset.id = book.id
 
         const removeBook = document.createElement("button");
         removeBook.classList.add("remove-book");
-        removeBook.textContent = "remove"
+        removeBook.innerHTML = `<svg class="delete" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete</title><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg>`
 
         removeBook.addEventListener("click", () => {
             const bookPosition = myLibrary.findIndex(item => item.id === book.id)
@@ -57,9 +57,9 @@ function displayBooks(){
         const editReadStatus = document.createElement("button");
         editReadStatus.classList.add("status-btn");
         if(book.read === "no"){
-            editReadStatus.textContent = "mark as read"
+            editReadStatus.innerHTML = `<svg class="unread" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>book-check</title><path d="M16.75 22.16L14 19.16L15.16 18L16.75 19.59L20.34 16L21.5 17.41L16.75 22.16M6 22C4.89 22 4 21.1 4 20V4C4 2.89 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.34C19.37 13.12 18.7 13 18 13C14.69 13 12 15.69 12 19C12 20.09 12.29 21.12 12.8 22H6Z" /></svg>`
         } else{
-            editReadStatus.textContent = "mark as unread"
+            editReadStatus.innerHTML = `<svg class="read" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>book</title><path d="M18,22A2,2 0 0,0 20,20V4C20,2.89 19.1,2 18,2H12V9L9.5,7.5L7,9V2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18Z" /></svg>`
         }
 
         editReadStatus.addEventListener("click", () => {
