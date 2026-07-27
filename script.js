@@ -25,6 +25,14 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book)
 }
 
+Book.prototype.toggleRead = function() {
+if(this.read === "yes"){
+    this.read = "no"
+} else{
+    this.read = "yes"
+}
+}
+
 function displayBooks(){
     booksContainer.textContent = ""
 
@@ -46,7 +54,22 @@ function displayBooks(){
             displayBooks()
         })
 
+        const editReadStatus = document.createElement("button");
+        editReadStatus.classList.add("status-btn");
+        if(book.read === "no"){
+            editReadStatus.textContent = "mark as read"
+        } else{
+            editReadStatus.textContent = "mark as unread"
+        }
+
+        editReadStatus.addEventListener("click", () => {
+            book.toggleRead()
+
+            displayBooks()
+        })
+
         books.appendChild(removeBook)
+        books.appendChild(editReadStatus)
 
         booksContainer.appendChild(books)
     })
@@ -67,4 +90,6 @@ form.addEventListener("submit", (e) => {
     addBookToLibrary(newTitle, newAuthor, newPages, newRead)
     
     displayBooks()
+
+    form.reset()
 })
