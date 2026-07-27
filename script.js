@@ -30,12 +30,26 @@ function displayBooks(){
 
     myLibrary.forEach((book) => {
 
-    const books = document.createElement("div");
-    books.classList.add("books");
-    books.textContent = `${book.title} by ${book.author}, ${book.pages} pages, read: ${book.read}`
+        const books = document.createElement("div");
+        books.classList.add("books");
+        books.textContent = `${book.title} by ${book.author}, ${book.pages} pages, read: ${book.read}`
+        books.dataset.id = book.id
 
-    booksContainer.appendChild(books)
-})
+        const removeBook = document.createElement("button");
+        removeBook.classList.add("remove-book");
+        removeBook.textContent = "remove"
+
+        removeBook.addEventListener("click", () => {
+            const bookPosition = myLibrary.findIndex(item => item.id === book.id)
+            myLibrary.splice(bookPosition, 1)
+
+            displayBooks()
+        })
+
+        books.appendChild(removeBook)
+
+        booksContainer.appendChild(books)
+    })
 }
 
 form.addEventListener("submit", (e) => {
