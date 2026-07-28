@@ -3,39 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+    <title>Odin Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <button command="show-modal" commandfor="my-dialog" class="new-book"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>book-plus</title><path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" /></svg>New Book</button>
+        <button command="show-modal" commandfor="my-dialog" class="new-book"><svg class="new-book-icon"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>book-plus</title><path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" /></svg>New Book</button>
         <dialog id="my-dialog">
-            <p>Enter book information:</p>
+            <h2>Enter book information:</h2>
 
             <form>
-                <div>
+                <div class="group">
                     <label for="title">Title:</label>
                     <input type="text" name="title" id="title" required>
                 </div>
                 
-                <div>
+                <div class="group">
                     <label for="author">Author:</label>
                     <input type="text" name="author" id="author" required>
                 </div>
 
-                <div>
+                <div class="group">
                     <label for="pages">Pages:</label>
                     <input type="number" name="pages" id="pages" required>
                 </div>
 
-                <div>
+                <div class="group">
                     <p>Read:</p>
 
-                    <label for="read-yes">Yes</label>
-                    <input type="radio" name="read" id="read-yes" value="yes">
+                    <div class="radio-group">
+                        <label for="read-yes">Yes</label>
+                        <input type="radio" name="read" id="read-yes" value="yes">
+                    </div>
                     
-                    <label for="read-no">No</label>
-                    <input type="radio" name="read" id="read-no" value="no">
+                    <div class="radio-group">
+                        <label for="read-no">No</label>
+                        <input type="radio" name="read" id="read-no" value="no">
+                    </div>
                 </div>
 
                 <button type="submit" class="add-book"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>book-plus</title><path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" /></svg>Add Book</button>
