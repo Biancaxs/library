@@ -3,83 +3,129 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background-color: #e5d9f2;
 }
 
 main h1{
     font-size: 32px;
+    padding: 30px 0px 0px 30px;
 }
 
 .books-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 30px;
 }
 
 .books{
-    background-color: aqua;
+    background-color: #f5efff;
     padding: 20px;
-    height: 200px;
-    width: 200px;
-    border: 1px solid #000;
+    height: fit-content;
+    width: 100%;
+    border: 1px solid #252422;
     border-radius: 8px;
+    color: #252422;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 1.8
 }
 
 .delete{
     width: 40px;
     height: 40px;
     padding: 5px;
-    fill: #fff;
-    background-color: rgb(255, 0, 13);
-    border-radius: 100px;
-    border: 1px solid black;
+    fill: #f5efff;
+    background-color: transparent;
 }
 
 .read, .unread{
     width: 40px;
     height: 40px;
     padding: 5px;
-    fill: #fff;
-    background-color: blue;
-    border-radius: 100px;
-    border: 1px solid black;
+    fill: #f5efff;
+    background-color: transparent;
 }
 
-.status-btn .remove-book{
+.status-btn {
     border-style: none;
     background-color: transparent;
+    background-color: #7371fc;
+    border-radius: 5px;
+    border: 1px solid #252422;
+}
+
+.status-btn:hover{
+    background-color: #5b59ca;
+}
+
+.remove-book{
+    border-style: none;
+    background-color: transparent;
+    background-color: #e63946;
+    border-radius: 5px;
+    border: 1px solid #252422;
+}
+
+.remove-book:hover{
+    background-color: #b8202d;
 }
 
 .new-book{
     display: flex;
-    width: 100px;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
     height: 50px;
+    color: #f5efff;
+    background-color: #7371fc;
+    border-radius: 5px;
+    border: 1px solid #252422;
+    margin: 30px 0px 0px 30px;;
+}
+
+.new-book-icon{
+    width: 40px;
+    height: 40px;
     padding: 5px;
-    fill: #fff;
-    color: #fff;
-    background-color: blue;
-    border-radius: 8px;
-    border: 1px solid black;
+    fill: #f5efff;
+    background-color: transparent;
+}
+
+.add-book svg{
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    background-color: transparent;
 }
 
 .add-book {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: 150px;
-  height: 50px;
-  color: #fff;
-  background-color: blue;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-
-  font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%x;
+    height: 50px;
+    color: #f5efff;
+    background-color: #7371fc;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #252422;
 }
 
 .add-book:hover{
-    background-color: rgb(1, 1, 194);
+    background-color: #5b59ca;
+}
+
+.close-btn svg {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+    background-color: transparent;
 }
 
 .close-btn{
@@ -87,29 +133,103 @@ main h1{
     justify-content: center;
     align-items: center;
     gap: 8px;
-    width: 150px;
+    width: 100%x;
     height: 50px;
-    color: #fff;
-    background-color: rgb(255, 0, 13);
+    color: #f5efff;
+    background-color: #e63946;
     border-radius: 8px;
     border: none;
     cursor: pointer;
-
     font-size: 16px;
+    border: 1px solid #252422;
 }
 
 .close-btn:hover{
-    background-color: rgb(199, 1, 11);
+    background-color: #b8202d;
 }
 
-.add-book svg{
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
+
+
+
+#my-dialog{
+    justify-self: center;
+    align-self: center;
+
+    border: 1px solid #252422;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    padding: 30px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    line-height: 1.8;
+    overflow: hidden;
 }
 
-.close-btn svg {
-    width: 25px;
-    height: 25px;
-    fill: currentColor;
+#my-dialog h2{
+    font-size: 18px;
+}
+
+#my-dialog p{
+    color: #252422;
+}
+
+#my-dialog[open]{
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-out;
+}
+
+#my-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+#my-dialog form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.group {
+  margin-bottom: 16px;
+}
+
+.group label{
+    display: flex;
+    margin-bottom: 5px;
+    color: #252422;
+}
+
+.group input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cdc1ff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.group input:focus {
+  border-color: #7371fc;
+  outline: none;
+}
+
+.group input[type="radio"]{
+    position: absolute;
+}
+
+.group input[type="radio"]:checked{
+    accent-color: #7371fc;
+}
+
+.radio-group{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.radio-group label, .radio-group input {
+    cursor: pointer;
 }
