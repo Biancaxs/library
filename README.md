@@ -32,7 +32,7 @@ This project was built as part of The Odin Project curriculum to practice JavaSc
 
 ## Live Demo
 
-[https://library-pi-one-84.vercel.app/](#)
+https://library-pi-one-84.vercel.app/
 
 ## Credits
 
