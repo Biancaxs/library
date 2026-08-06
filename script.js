@@ -12,25 +12,27 @@ const bookPages = document.querySelector("#pages")
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book{
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    toggleRead() {
+        if(this.read === "yes"){
+            this.read = "no"
+        } else {
+            this.read = "yes"
+        }
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read)
     book.id = crypto.randomUUID()
     myLibrary.push(book)
-}
-
-Book.prototype.toggleRead = function() {
-if(this.read === "yes"){
-    this.read = "no"
-} else{
-    this.read = "yes"
-}
 }
 
 function displayBooks(){
